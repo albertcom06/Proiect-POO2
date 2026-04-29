@@ -23,6 +23,6 @@ std::ostream& operator<<(std::ostream& os, const Sport& s) {
     os << "Eveniment sportiv\n";
     os << "Meci: " << s.numeEchipe << "\n";
     os << "Cota: " << s.cotaBaza << "\n";
-    s.afisareSpecifica(os); // Aici se produce polimorfismul
+    s.afisareSpecifica(os); // Aici se produce apelul polimorfic catre metoda privata din derivate
     return os;
 }

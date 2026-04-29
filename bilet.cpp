@@ -1,8 +1,11 @@
 #include "bilet.h"
+
+//constructor:verificare daca miza este pozitiva si >0
 Bilet::Bilet(double miza_):miza(miza_) {
         if (miza_ < 0 ) throw MizaInvalida(miza_);
     }
 
+//CC
 Bilet::Bilet(const Bilet& other) : miza(other.miza) {
     //parcurgem lista de meciuri din biletul pe care il copiem
     for (const auto& p: other.pariuri) {
@@ -10,6 +13,7 @@ Bilet::Bilet(const Bilet& other) : miza(other.miza) {
     }
 }
 
+//functia swap, schimba valorile a 2 obiecte ,esentiala pentru operator=
 void swap(Bilet& b1, Bilet& b2) noexcept {
     using std::swap;
     swap(b1.pariuri, b2.pariuri);
@@ -35,6 +39,7 @@ double Bilet::calculeazaProcentRecursiv(int nrMeciuri) const {
     return 0.05 + calculeazaProcentRecursiv(nrMeciuri - 1);
 }
 
+//aplicare bonus daca sunt indeplinite conditiile
 void Bilet::aplicaBonusMultipla(double& cotaFinala) const {
     if (pariuri.size() >= 4) {
         bool toateCoteleSuntOk = true;

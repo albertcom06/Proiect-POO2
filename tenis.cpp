@@ -4,6 +4,7 @@
 Tenis::Tenis(std::string nume_, double cota_, std::string pronostic_, std::string suprafata_,bool dublu_)
         :Sport(std::move(nume_),cota_,std::move(pronostic_)),suprafataTeren(std::move(suprafata_)),esteMeciDublu(dublu_) {
 
+    //validare specifica,nu putem avea egal
     if (getPronostic() == "X" || getPronostic()== "x") {
         throw EroarePariuri("Nu putem paria egal pe tenis");
     }
